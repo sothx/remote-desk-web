@@ -27,6 +27,9 @@ devDependencies:
   customize-cra:
     specifier: ^1.0.0
     version: registry.npmmirror.com/customize-cra@1.0.0
+  fs-extra:
+    specifier: ^11.1.1
+    version: registry.npmmirror.com/fs-extra@11.1.1
   react-app-rewired:
     specifier: ^2.2.1
     version: registry.npmmirror.com/react-app-rewired@2.2.1(react-scripts@5.0.1)
@@ -6135,6 +6138,17 @@ packages:
       graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
       jsonfile: registry.npmmirror.com/jsonfile@6.1.0
       universalify: registry.npmmirror.com/universalify@2.0.0
+
+  registry.npmmirror.com/fs-extra@11.1.1:
+    resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs-extra/-/fs-extra-11.1.1.tgz}
+    name: fs-extra
+    version: 11.1.1
+    engines: {node: '>=14.14'}
+    dependencies:
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
+      jsonfile: registry.npmmirror.com/jsonfile@6.1.0
+      universalify: registry.npmmirror.com/universalify@2.0.0
+    dev: true
 
   registry.npmmirror.com/fs-extra@9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs-extra/-/fs-extra-9.1.0.tgz}

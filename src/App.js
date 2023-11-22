@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { ipcRenderer } from 'electron';
 import './peer-puppet.js'
+const { Menu, MenuItem, getCurrentWebContents } = require('@electron/remote')
 function App() {
   const [remoteCode, setRemoteCode] = useState('');
   const [localCode, setLocalCode] = useState('');
@@ -16,7 +17,7 @@ function App() {
     return () => {
       ipcRenderer.removeListener('control-state-change', handleControlState)
     }
-  },[])
+  }, [])
 
   const startControl = (remoteCode) => {
     ipcRenderer.send('control', remoteCode)
@@ -34,15 +35,24 @@ function App() {
     setControlText(text)
   }
 
+  const handleContextMenu = (e) => {
+    e.preventDefault()
+    const menu = new Menu()
+    menu.append(new MenuItem({ label: '复制', role: 'copy' }))
+    menu.popup({
+      window: getCurrentWebContents()
+    })
+  }
+
   return (
     <div className="App">
       {
         controlText === '' ?
           <>
-            <div>你的控制码 {localCode}</div>
+            <div>你的控制码 <span onContextMenu={(e) => handleContextMenu(e)}>{localCode}</span></div>
             <input type="text" value={remoteCode} onChange={e => setRemoteCode(e.target.value)}></input>
             <button onClick={() => startControl(remoteCode)}>确认</button>
-          </> : <div>{ controlText }</div>
+          </> : <div>{controlText}</div>
       }
     </div>
   );
